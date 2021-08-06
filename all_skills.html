@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+
+<script>
+  $(document).ready(function(){
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [{% for item in qs %}'{{item.name}}',{% endfor %}],
+        datasets: [{
+            label: 'Sum of all user skills',
+            data: [{% for item in qs %}{{item.total}},{% endfor %}],
+            backgroundColor: 'rgba(44, 130, 201, 0.5)',
+            borderColor: 'rgba(0, 0, 0, 1)',
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+              }
+            }]
+        }
+    }
+  });
+});
+</script>
+
+{% endblock scripts %}
+
+
+{% block content %}
+
+
+
+  <div class="twelve wide column">
+    <canvas id="myChart" width="400" height="300"></canvas>
+  </div>
+
+
+
+{% endblock content %}

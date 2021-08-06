@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="ui single line table center aligned">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Date Joined</th>
+      <th>Skills</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for obj in object_list %}
+        <tr>
+          <td>{{obj.name}}</td>
+          <td>{{obj.created|date}}</td>
+          <td>
+            <a href="{% url 'skills:userskills' obj.id %}">
+              <button class="ui primary button">
+                View
+              </button>
+            </a>
+          </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

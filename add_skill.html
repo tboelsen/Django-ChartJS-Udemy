@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+
+<script>
+  $(document).ready(function(){
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [{% for item in qs %}'{{item.name}}',{% endfor %}],
+        datasets: [{
+            label: 'My Skills',
+            data: [{% for item in qs %}{{item.score}},{% endfor %}],
+            backgroundColor: 'rgba(44, 130, 201, 0.5)',
+            borderColor: 'rgba(0, 0, 0, 1)',
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+              }
+            }]
+        }
+    }
+  });
+});
+</script>
+
+{% endblock scripts %}
+
+
+{% block content %}
+
+
+<div class="ui grid">
+
+  <div class="four wide column">
+    <form action="" method="post" class="form ui">
+      {% csrf_token %}
+      {{ formset.as_p }}
+      <button class="secondary button ui" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="twelve wide column">
+    <canvas id="myChart" width="400" height="200"></canvas>
+  </div>
+
+</div>
+
+
+
+{% endblock content %}

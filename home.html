@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+
+{% block content %}
+
+<div class="ui icon message">
+  <i class="inbox icon"></i>
+  <div class="content">
+    <div class="header">
+      Do you have any questions?
+    </div>
+    <p>Send me an Email!</p>
+  </div>
+</div>
+
+<div class="ui segment">
+  <p>
+    Vestibulum sed commodo nunc, sed blandit enim. Nunc porta, risus eget mattis imperdiet, augue nibh vehicula ex, at pharetra quam elit eu magna. Nam suscipit ante egestas, tincidunt elit vel, aliquam mauris. Suspendisse potenti. Nunc posuere dapibus tincidunt. Aliquam consectetur ante ac consequat dignissim. Praesent sollicitudin, dolor in suscipit faucibus, dui justo pretium libero, vel pharetra nisi eros eget massa. Donec lorem nisl, auctor nec luctus non, dignissim id nibh. Praesent quis lectus sollicitudin, facilisis tortor a, posuere dolor. Aliquam erat volutpat. Nunc gravida sed enim sed molestie. Duis condimentum, orci at fringilla convallis, urna tortor interdum arcu, a molestie metus sem at risus. Praesent turpis lacus, fringilla sit amet ornare at, feugiat eget felis.
+  </p>
+  <div class="sixteenwide" style="text-align:center">
+    <a href="{% url 'skills:skills' %}">
+        <button class="massive primary ui button">
+        <i class="chart line icon"></i> My Skills
+        </button>
+  </a>
+  </div>
+
+</div>
+
+{% endblock content %}
